@@ -3,6 +3,8 @@ package br.com.gar.prospects.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.gar.prospects.model.dto.ProspectsDTO;
+
 @Document(collection = "prospects")
 public class Prospects {
 	
@@ -12,6 +14,11 @@ public class Prospects {
 	
 	public Prospects() {
 		
+	}
+	
+	public Prospects(ProspectsDTO prospectsDTO) {
+		this.setIdProspects(prospectsDTO.getIdProspects());
+		this.setNameProspect(prospectsDTO.getNameProspect());
 	}
 	
 	public String getIdProspects() {

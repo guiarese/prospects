@@ -2,26 +2,18 @@ package br.com.gar.prospects.model.dto;
 
 import br.com.gar.prospects.model.Prospects;
 
-public class ProspectsDTO {
+public class ProspectsRequestDTO {
 	
-	private String idProspects;
 	private String nameProspect;
 	
-	public ProspectsDTO() {
+	public ProspectsRequestDTO() {
 		
 	}
 	
-	public ProspectsDTO(Prospects prospects) {
-		this.setIdProspects(prospects.getIdProspects());
+	public ProspectsRequestDTO(Prospects prospects) {
 		this.setNameProspect(prospects.getNameProspect());
 	}
 	
-	public String getIdProspects() {
-		return idProspects;
-	}
-	public void setIdProspects(String idProspects) {
-		this.idProspects = idProspects;
-	}
 	public String getNameProspect() {
 		return nameProspect;
 	}

@@ -42,8 +42,8 @@ public class ProspectServiceImpl implements ProspectsService{
 
 	@Override
 	public void delete(String prospectId) {
-		// TODO Auto-generated method stub
-		
+		Prospects prospectSave = prospectsRepository.findById(prospectId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+		prospectsRepository.deleteById(prospectSave.getIdProspects());		
 	}
 
 }

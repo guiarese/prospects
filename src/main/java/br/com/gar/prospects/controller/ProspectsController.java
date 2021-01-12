@@ -38,7 +38,7 @@ public class ProspectsController {
 	
 	@DeleteMapping("/{prospectId}")
 	public void delete(@PathVariable String prospectId) {
-		
+		prospectsService.delete(prospectId);
 	}
 	
 }

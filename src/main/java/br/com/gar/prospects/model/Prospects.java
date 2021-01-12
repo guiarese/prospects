@@ -13,7 +13,6 @@ public class Prospects {
 	private String nameProspect;
 	
 	//email, age, location, dateIncluded, list of interests (order by greatest to lowest), notes
-	//remove id from dto
 	
 	public Prospects() {
 		

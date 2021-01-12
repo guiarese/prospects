@@ -1,5 +1,8 @@
 package br.com.gar.prospects.service.impl;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,6 +26,10 @@ public class ProspectServiceImpl implements ProspectsService{
 		Prospects prospectSave = prospectsRepository.save(prospects);
 		return new ProspectsResponseDTO(prospectSave);
 	}
+	
+	public List<ProspectsResponseDTO> findAll(){
+		return prospectsRepository.findAll().stream().map(ProspectsResponseDTO::new).collect(Collectors.toList());
+	}
 
 	@Override
 	public ProspectsResponseDTO findById(String prospectId) {
@@ -35,7 +42,6 @@ public class ProspectServiceImpl implements ProspectsService{
 		Prospects prospectSave = prospectsRepository.findById(prospectId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 		Prospects prospectUpdated = new Prospects(prospectId,prospectDTO);
 		if (prospectSave.equals(prospectUpdated)) throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Não existem alterações a serem salvas");
-		//ajustar message
 		prospectSave = prospectsRepository.save(prospectUpdated);
 		return new ProspectsResponseDTO(prospectSave);
 	}

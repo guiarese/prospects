@@ -1,5 +1,7 @@
 package br.com.gar.prospects.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +26,11 @@ public class ProspectsController {
 	@PostMapping
 	public ProspectsResponseDTO create(@RequestBody ProspectsRequestDTO prospectsDTO) {
 		return prospectsService.create(prospectsDTO);
+	}
+	
+	@GetMapping
+	public List<ProspectsResponseDTO> findAll(){
+		return prospectsService.findAll();
 	}
 	
 	@GetMapping("/{prospectId}")

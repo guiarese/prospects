@@ -18,7 +18,6 @@ public class Prospects {
 	private String locationProspect;
 	private Date dateIncludedProspect;
 	
-	//Ajustar equals
 	//list of interests (order by greatest to lowest), notes
 	
 	public Prospects() {

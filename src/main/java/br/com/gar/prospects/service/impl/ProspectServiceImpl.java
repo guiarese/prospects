@@ -1,5 +1,6 @@
 package br.com.gar.prospects.service.impl;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import br.com.gar.prospects.model.Interest;
 import br.com.gar.prospects.model.Prospects;
 import br.com.gar.prospects.model.dto.ProspectsRequestDTO;
 import br.com.gar.prospects.model.dto.ProspectsResponseDTO;
@@ -23,6 +25,7 @@ public class ProspectServiceImpl implements ProspectsService{
 	@Override
 	public ProspectsResponseDTO create(ProspectsRequestDTO prospectsDTO) {
 		Prospects prospects = new Prospects(prospectsDTO);
+		prospects.getListInterests().sort(Comparator.comparing(Interest::getOrder));
 		Prospects prospectSave = prospectsRepository.save(prospects);
 		return new ProspectsResponseDTO(prospectSave);
 	}

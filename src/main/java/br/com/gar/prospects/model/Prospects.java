@@ -1,6 +1,7 @@
 package br.com.gar.prospects.model;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,8 +18,7 @@ public class Prospects {
 	private int ageProspect;
 	private String locationProspect;
 	private Date dateIncludedProspect;
-	
-	//list of interests (order by greatest to lowest), notes
+	private List<Interest> listInterests;
 	
 	public Prospects() {
 		
@@ -31,6 +31,7 @@ public class Prospects {
 		this.setAgeProspect(prospectsDTO.getAgeProspect());
 		this.setLocationProspect(prospectsDTO.getLocationProspect());
 		this.setDateIncludedProspect(prospectsDTO.getDateIncludedProspect());
+		this.setListInterests(prospectsDTO.getListInterests());
 	}
 	
 	public Prospects(ProspectsRequestDTO prospectsDTO) {
@@ -39,6 +40,7 @@ public class Prospects {
 		this.setAgeProspect(prospectsDTO.getAgeProspect());
 		this.setLocationProspect(prospectsDTO.getLocationProspect());
 		this.setDateIncludedProspect(prospectsDTO.getDateIncludedProspect());
+		this.setListInterests(prospectsDTO.getListInterests());
 	}
 	
 	public String getIdProspects() {
@@ -76,6 +78,12 @@ public class Prospects {
 	}
 	public void setDateIncludedProspect(Date dateIncludedProspect) {
 		this.dateIncludedProspect = dateIncludedProspect;
+	}
+	public List<Interest> getListInterests() {
+		return listInterests;
+	}
+	public void setListInterests(List<Interest> listInterests) {
+		this.listInterests = listInterests;
 	}
 
 	@Override

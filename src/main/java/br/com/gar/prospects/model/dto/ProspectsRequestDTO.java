@@ -1,7 +1,9 @@
 package br.com.gar.prospects.model.dto;
 
 import java.util.Date;
+import java.util.List;
 
+import br.com.gar.prospects.model.Interest;
 import br.com.gar.prospects.model.Prospects;
 
 public class ProspectsRequestDTO {
@@ -11,6 +13,7 @@ public class ProspectsRequestDTO {
 	private int ageProspect;
 	private String locationProspect;
 	private Date dateIncludedProspect;
+	private List<Interest> listInterests;
 	
 	public ProspectsRequestDTO() {
 		
@@ -22,6 +25,7 @@ public class ProspectsRequestDTO {
 		this.setAgeProspect(prospects.getAgeProspect());
 		this.setLocationProspect(prospects.getLocationProspect());
 		this.setDateIncludedProspect(prospects.getDateIncludedProspect());
+		this.setListInterests(prospects.getListInterests());
 	}
 	
 	public String getNameProspect() {
@@ -53,6 +57,12 @@ public class ProspectsRequestDTO {
 	}
 	public void setDateIncludedProspect(Date dateIncludedProspect) {
 		this.dateIncludedProspect = dateIncludedProspect;
+	}
+	public List<Interest> getListInterests() {
+		return listInterests;
+	}
+	public void setListInterests(List<Interest> listInterests) {
+		this.listInterests = listInterests;
 	}
 	
 

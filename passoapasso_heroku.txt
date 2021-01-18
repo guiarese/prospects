@@ -1,0 +1,6 @@
+1° entrar no diretório do projeto
+2° heroku login
+3° heroku create prospects-api
+4° git push heroku main
+5° heroku open
+6° heroku logs --tail
